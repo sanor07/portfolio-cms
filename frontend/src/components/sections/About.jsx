@@ -1,86 +1,113 @@
 import {
-  FaGithub,
-  FaLinkedin,
-  FaEnvelope,
   FaShieldAlt,
-  FaCode,
-  FaServer,
+  FaMapMarkerAlt,
+  FaGraduationCap,
+  FaBriefcase,
+  FaBullseye,
+  FaCheckCircle,
 } from "react-icons/fa";
-
 import Container from "../ui/Container";
 import GlassCard from "../ui/GlassCard";
 import SectionHeading from "../ui/SectionHeading";
 import Button from "../ui/Button";
-import Badge from "../ui/Badge";
 
 export default function About() {
-  return (
-    <section
-      id="about"
-      className="bg-[#09090B] py-32"
-    >
-      <Container>
+  const stats = [
+    { value: "15+", label: "Projects" },
+    { value: "10+", label: "Certificates" },
+    { value: "30+", label: "Technologies" },
+    { value: "1+", label: "Years Learning" },
+  ];
 
+  const focus = [
+    "Detection Engineering",
+    "SOC Operations",
+    "SIEM & Wazuh",
+    "Threat Hunting",
+    "Cloud Security",
+    "Python Automation",
+  ];
+
+  return (
+    <section id="about" className="bg-[#09090B] py-32">
+      <Container>
         <SectionHeading
           title="About Me"
-          subtitle="Passionate about cybersecurity, detection engineering, SIEM, cloud security, automation and modern web development."
+          subtitle="Building secure systems, detection rules and modern applications."
         />
 
-        <div className="grid gap-10 lg:grid-cols-2">
+        <div className="grid gap-10 lg:grid-cols-[380px_1fr]">
 
-          {/* Left */}
+          {/* LEFT */}
 
-          <GlassCard className="p-10">
+          <GlassCard className="p-8">
 
-            <div className="flex flex-col items-center">
+            <img
+              src="https://placehold.co/400x500"
+              alt="profile"
+              className="mb-6 w-full rounded-2xl"
+            />
 
-              <img
-                src="https://placehold.co/250x250"
-                alt="Profile"
-                className="mb-8 h-56 w-56 rounded-full border-4 border-blue-500 object-cover"
-              />
+            <h2 className="text-3xl font-bold text-white">
+              Sanowar Hussain
+            </h2>
 
-              <h3 className="text-3xl font-bold text-white">
-                Sanowar Hussain
-              </h3>
+            <p className="mt-2 text-blue-400">
+              Cybersecurity Enthusiast
+            </p>
 
-              <p className="mt-2 text-zinc-400">
-                Cybersecurity Enthusiast
-              </p>
+            <div className="mt-6 space-y-4 text-zinc-400">
 
-              <div className="mt-8 flex flex-wrap justify-center gap-3">
+              <div className="flex items-center gap-3">
+                <FaMapMarkerAlt />
+                India
+              </div>
 
-                <Badge>Detection Engineering</Badge>
+              <div className="flex items-center gap-3">
+                <FaGraduationCap />
+                B.Tech CSE
+              </div>
 
-                <Badge>SOC</Badge>
-
-                <Badge>Python</Badge>
-
-                <Badge>Linux</Badge>
-
+              <div className="flex items-center gap-3">
+                <FaBriefcase />
+                Open to Opportunities
               </div>
 
             </div>
 
+            <div className="mt-8">
+              <Button className="w-full">
+                Download Resume
+              </Button>
+            </div>
+
           </GlassCard>
 
-          {/* Right */}
+          {/* RIGHT */}
 
           <div className="space-y-8">
 
             <GlassCard className="p-8">
 
-              <h3 className="mb-4 text-2xl font-bold text-white">
-                Who am I?
-              </h3>
+              <div className="flex items-center gap-3">
 
-              <p className="leading-8 text-zinc-400">
+                <FaShieldAlt className="text-blue-400 text-2xl"/>
 
-                I'm a Computer Science student focused on
+                <h3 className="text-2xl font-bold text-white">
+                  Who I Am
+                </h3>
+
+              </div>
+
+              <p className="mt-6 leading-8 text-zinc-400">
+
+                I'm a Computer Science student passionate about
                 Cybersecurity, Detection Engineering,
-                SIEM technologies, OSINT, Python automation,
-                Linux administration, and full-stack
-                application development.
+                SIEM platforms, Linux, Cloud Security,
+                Python Automation and Full Stack Development.
+
+                I enjoy building practical security projects that
+                solve real-world problems instead of just following tutorials.
 
               </p>
 
@@ -88,109 +115,94 @@ export default function About() {
 
             {/* Stats */}
 
-            <div className="grid grid-cols-2 gap-5">
+            <div className="grid grid-cols-2 gap-5 md:grid-cols-4">
 
-              <GlassCard className="p-6">
+              {stats.map((item) => (
 
-                <FaShieldAlt
-                  className="mb-4 text-3xl text-blue-400"
-                />
+                <GlassCard
+                  key={item.label}
+                  className="p-6 text-center"
+                >
 
-                <h4 className="text-4xl font-bold text-white">
-                  15+
-                </h4>
+                  <h2 className="text-4xl font-black text-blue-400">
+                    {item.value}
+                  </h2>
 
-                <p className="text-zinc-400">
-                  Projects
-                </p>
+                  <p className="mt-2 text-zinc-400">
+                    {item.label}
+                  </p>
 
-              </GlassCard>
+                </GlassCard>
 
-              <GlassCard className="p-6">
-
-                <FaCode
-                  className="mb-4 text-3xl text-cyan-400"
-                />
-
-                <h4 className="text-4xl font-bold text-white">
-                  10+
-                </h4>
-
-                <p className="text-zinc-400">
-                  Certifications
-                </p>
-
-              </GlassCard>
-
-              <GlassCard className="p-6">
-
-                <FaServer
-                  className="mb-4 text-3xl text-violet-400"
-                />
-
-                <h4 className="text-4xl font-bold text-white">
-                  SIEM
-                </h4>
-
-                <p className="text-zinc-400">
-                  Detection Lab
-                </p>
-
-              </GlassCard>
-
-              <GlassCard className="p-6">
-
-                <FaEnvelope
-                  className="mb-4 text-3xl text-green-400"
-                />
-
-                <h4 className="text-4xl font-bold text-white">
-                  Open
-                </h4>
-
-                <p className="text-zinc-400">
-                  For Opportunities
-                </p>
-
-              </GlassCard>
+              ))}
 
             </div>
 
-            {/* Buttons */}
+            {/* Current Focus */}
 
-            <div className="flex flex-wrap gap-4">
+            <GlassCard className="p-8">
 
-              <Button>
-                Download Resume
-              </Button>
+              <div className="flex items-center gap-3">
 
-              <Button variant="secondary">
-                Contact Me
-              </Button>
+                <FaBullseye className="text-cyan-400"/>
 
-            </div>
+                <h3 className="text-2xl font-bold text-white">
+                  Current Focus
+                </h3>
 
-            {/* Social */}
+              </div>
 
-            <div className="flex gap-6 text-3xl text-zinc-400">
+              <div className="mt-6 flex flex-wrap gap-4">
 
-              <a
-                href="https://github.com/sanor07"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <FaGithub />
-              </a>
+                {focus.map((item) => (
 
-              <a
-                href="https://linkedin.com/in/sano18"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <FaLinkedin />
-              </a>
+                  <div
+                    key={item}
+                    className="rounded-full border border-blue-500/20 bg-blue-500/10 px-5 py-3 text-blue-300"
+                  >
+                    {item}
+                  </div>
 
-            </div>
+                ))}
+
+              </div>
+
+            </GlassCard>
+
+            {/* Current Projects */}
+
+            <GlassCard className="p-8">
+
+              <h3 className="mb-6 text-2xl font-bold text-white">
+                Currently Building
+              </h3>
+
+              <div className="space-y-5">
+
+                {[
+                  "SIEM Detection Engineering Lab",
+                  "Portfolio CMS",
+                  "ReconX OSINT Framework",
+                ].map((project) => (
+
+                  <div
+                    key={project}
+                    className="flex items-center gap-4 rounded-xl bg-white/5 p-4"
+                  >
+
+                    <FaCheckCircle className="text-green-400"/>
+
+                    <span className="text-white">
+                      {project}
+                    </span>
+
+                  </div>
+
+                ))}
+
+              </div>
+
+            </GlassCard>
 
           </div>
 
